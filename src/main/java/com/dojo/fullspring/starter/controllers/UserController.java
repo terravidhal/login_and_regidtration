@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 
     
 @Controller
-public class HomeController {
+public class UserController {
     
     // Add once service is implemented:
     @Autowired
@@ -74,9 +74,7 @@ public class HomeController {
         User registeredUser = userServ.register(newUser, result);  
         
         if(result.hasErrors()) {
-            // Be sure to send in the empty LoginUser before 
             // re-rendering the page.
-            model.addAttribute("newLogin", new LoginUser());
             return "register.jsp";
         }
         
@@ -84,7 +82,7 @@ public class HomeController {
         // TO-DO Later: Store their ID from the DB in session, 
         // in other words, log them in.
 
-         session.setAttribute("userId", registeredUser.getId()); 
+        session.setAttribute("userId", registeredUser.getId()); 
     
         return "redirect:/home";
     }
@@ -101,7 +99,6 @@ public class HomeController {
          User user = userServ.login(newLogin, result); 
     
         if(result.hasErrors()) {
-            model.addAttribute("newUser", new User());
             return "login.jsp";
         }
     
@@ -115,7 +112,7 @@ public class HomeController {
 
 
 
-    @GetMapping ("/home") // rest normlment dns l scond controllr
+  /*   @GetMapping ("/home") // rest normlment dns l scond controllr
     public String home(Model model, HttpSession session){
     	if (session.getAttribute("userId")!= null){
     		Long userId = (Long) session.getAttribute("userId");
@@ -125,7 +122,7 @@ public class HomeController {
     	}
     	return "redirect:/";
     	  		
-    }
+    } */
     
     @GetMapping ("/logout")
     public String logout(HttpSession session){

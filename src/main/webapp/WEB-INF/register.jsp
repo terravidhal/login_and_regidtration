@@ -11,6 +11,8 @@
         <head>
             <meta charset="UTF-8">
             <title>Create Dojos :</title>
+            <!-- linking a cdn fontawesome icons -->
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <!-- for Bootstrap CSS -->
             <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
             <!-- YOUR own local CSS -->
@@ -33,15 +35,18 @@
                                 <form:errors path="email"/>
                                 <form:input class="form-control" type="email" path="email"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group relative">
                                 <form:label path="password">Password  : </form:label>
                                 <form:errors path="password"/>
                                 <form:input class="form-control" type="password" path="password"/>
+                                <i style="bottom: 30px; right: 40px; z-index: 9999;" class="fas icon-password fa-eye fa-eye-slash absolute"></i>
                             </div>
-                            <div class="form-group">
+                            <p style="font-size: 0.8rem;" class="text-primary">requires 8 chars, 1 upper or lower, 1 number</p>
+                            <div class="form-group relative">
                                 <form:label path="confirm">Confirm Password  : </form:label>
                                 <form:errors path="confirm"/>
                                 <form:input class="form-control" type="password" path="confirm"/>
+                                <i style="bottom: 29px; right: 40px; z-index: 9999;" class="fas icon-password fa-eye fa-eye-slash absolute"></i>
                             </div>
                             <button type="submit" class="btn btn-primary my-2">Submit</button>
                         </form:form>

@@ -34,13 +34,7 @@ public class User {
     @Size(min=8, max=128, message="Password must be between 8 and 128 characters")
     private String password;
     
-    @Transient // la variable disparaitra dès q l'objet est enrgistrer dns la database
-    /*
-     * Cela nous permettra d'utiliser confirmsur une instance de Usertemporairement, sans 
-     * jamais l'enregistrer dans la base de données. Lorsqu'un objet utilisateur est enregistré 
-     * avec une méthode JPA, toutes les variables membres transitoires sont ignorées et seules 
-     * les variables non transitoires sont enregistrées dans la base de données.
-     */
+    @Transient 
     @NotEmpty(message="Confirm Password is required!")
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;

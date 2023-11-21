@@ -15,7 +15,7 @@ import com.dojo.fullspring.starter.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
-// .. don't forget to include all your imports! ..
+
 
 
     
@@ -45,14 +45,14 @@ public class HomeController {
         
         // Bind empty User and LoginUser objects to the JSP
         // to capture the form input
-        model.addAttribute("newUser", new User()); // => newUser = new User() (nvel objet user)
+        model.addAttribute("newUser", new User()); 
         return "register.jsp";
     }
     
     @GetMapping("/login")
     public String login(Model model, HttpSession session) {
         
-        if (session.getAttribute("userId")!= null){  //add
+        if (session.getAttribute("userId")!= null){  
             return "redirect:/home";
         }
         // Bind empty User and LoginUser objects to the JSP
@@ -71,7 +71,7 @@ public class HomeController {
         // TO-DO Later -- call a register method in the service 
         // to do some extra validations and create a new user!
 
-        User registeredUser = userServ.register(newUser, result);  // add
+        User registeredUser = userServ.register(newUser, result);  
         
         if(result.hasErrors()) {
             // Be sure to send in the empty LoginUser before 
@@ -84,7 +84,7 @@ public class HomeController {
         // TO-DO Later: Store their ID from the DB in session, 
         // in other words, log them in.
 
-         session.setAttribute("userId", registeredUser.getId()); // add
+         session.setAttribute("userId", registeredUser.getId()); 
     
         return "redirect:/home";
     }
@@ -98,7 +98,7 @@ public class HomeController {
                          HttpSession session) {
         
         // Add once service is implemented:
-         User user = userServ.login(newLogin, result); // add
+         User user = userServ.login(newLogin, result); 
     
         if(result.hasErrors()) {
             model.addAttribute("newUser", new User());
@@ -108,14 +108,14 @@ public class HomeController {
         // No errors! 
         // TO-DO Later: Store their ID from the DB in session, 
         // in other words, log them in.
-        session.setAttribute("userId", user.getId()); // add
+        session.setAttribute("userId", user.getId()); 
     
         return "redirect:/home";
     }
 
 
 
-    @GetMapping ("/home")
+    @GetMapping ("/home") // rest normlment dns l scond controllr
     public String home(Model model, HttpSession session){
     	if (session.getAttribute("userId")!= null){
     		Long userId = (Long) session.getAttribute("userId");

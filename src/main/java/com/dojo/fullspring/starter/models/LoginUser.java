@@ -5,14 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 
-// pas de @Entity donc il n'est pas transmis à la base de donnée
-/*
- * Ce n'est pas une entité dans notre base de données, et nous ne 
- * l'utilisons que temporairement pour valider la saisie du formulaire 
- * lorsque l'utilisateur se connecte. Une fois que la saisie du formulaire
- *  a réussi ou non la validation et l'authentification, cela LoginUser
- * l'instance disparaît.
- */
+
 public class LoginUser {
     
     @NotEmpty(message="Email is required!")

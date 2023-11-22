@@ -126,7 +126,10 @@ public class UserController {
     
     @GetMapping ("/logout")
     public String logout(HttpSession session){
-    	session.invalidate(); // supprime ttes ls données de la session
+      //	session.invalidate(); // supprime ttes ls données de la session
+
+        session.setAttribute("userId", null);
+        
     	return "redirect:/";		
     }
     
